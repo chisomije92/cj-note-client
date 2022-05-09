@@ -27,7 +27,7 @@ function App() {
     setInput(e.target.value);
   };
 
-  const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = async () => {
     if (!ref.current) {
       return;
     }
