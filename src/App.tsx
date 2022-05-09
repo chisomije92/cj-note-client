@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as esbuild from "esbuild-wasm";
 import "./App.css";
+import { unpkgPathPlugin } from "./plugins/unpkg-path-plugin";
 
 function App() {
   const ref = useRef<any>(null);
@@ -16,10 +17,10 @@ function App() {
   };
 
   useEffect(() => {
-    startService();
     if (ref.current) {
       return;
     }
+    startService();
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -30,15 +31,18 @@ function App() {
     if (!ref.current) {
       return;
     }
-    const result = await esbuild.transform(input, {
-      loader: "jsx",
-      target: "es2015",
+    // const result = await esbuild.transform(input, {
+    //   loader: "jsx",
+    //   target: "es2015",
+    // });
+    const result = await esbuild.build({
+      entryPoints: ["index.js"],
+      bundle: true,
+      write: false,
+      plugins: [unpkgPathPlugin()],
     });
-    // const result = esbuild.build({
-
-    // })
     console.log(result);
-    setCode(result.code);
+    setCode(result.outputFiles[0].text);
   };
   return (
     <div className="App">
