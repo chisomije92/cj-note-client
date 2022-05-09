@@ -17,17 +17,28 @@ function App() {
 
   useEffect(() => {
     startService();
-    // if (ref.current) {
-    //   return;
-    // }
+    if (ref.current) {
+      return;
+    }
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInput(e.target.value);
   };
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(input);
+  const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (!ref.current) {
+      return;
+    }
+    const result = await esbuild.transform(input, {
+      loader: "jsx",
+      target: "es2015",
+    });
+    // const result = esbuild.build({
+
+    // })
+    console.log(result);
+    setCode(result.code);
   };
   return (
     <div className="App">
@@ -35,7 +46,7 @@ function App() {
       <div>
         <button onClick={handleClick}>Submit</button>
       </div>
-      <pre></pre>
+      <pre>{code}</pre>
     </div>
   );
 }
