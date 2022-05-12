@@ -1,3 +1,4 @@
+import classes from "./code-editor.module.css";
 import Editor, { OnChange } from "@monaco-editor/react";
 import React, { useRef } from "react";
 import prettier from "prettier";
@@ -38,7 +39,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ defaultValue, passValue }) => {
     editorRef.current.setValue(formatted);
   };
   return (
-    <div>
+    <div className={classes["editor-wrapper"]}>
       <button
         className="button button-format is-primary is-small"
         onClick={onFormatClick}
