@@ -1,4 +1,5 @@
 import "bulmaswatch/superhero/bulmaswatch.min.css";
+import Preview from "./components/preview";
 import React, { useEffect, useRef, useState } from "react";
 import * as esbuild from "esbuild-wasm";
 import "./App.css";
@@ -8,9 +9,9 @@ import CodeEditor from "./components/code-editor";
 
 function App() {
   const ref = useRef<any>(null);
-  const iframe = useRef<HTMLIFrameElement>(null);
+
   const [input, setInput] = useState("");
-  // const [code, setCode] = useState("");
+  const [code, setCode] = useState("");
 
   const startService = async () => {
     await esbuild.initialize({
@@ -27,37 +28,17 @@ function App() {
     return;
   }, []);
 
-  const html = `
-  <html>
-  <head></head>
-  <body>
-  <div id='root'></div>
-  <script>
-  window.addEventListener('message', (event) => {
-    try{
-      eval(event.data);
-    }catch(e){
- const root = document.querySelector('#root');
- root.innerHTML = '<div style="color: red"> <h4>Runtime Error</h4>' + e.message + '</div>';
-console.log(e);
-   }
-  }, false)</script></body>
-  </html>`;
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setInput(e.target.value);
-  };
+  // const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  //   setInput(e.target.value);
+  // };
 
   const changeHandler = (value: string) => {
     setInput(value);
-    // console.log(value);
   };
 
   const handleClick = async () => {
     if (!ref.current) {
       return;
-    }
-    if (iframe.current) {
-      iframe.current.srcdoc = html;
     }
 
     const result = await esbuild.build({
@@ -70,23 +51,16 @@ console.log(e);
         global: "window",
       },
     });
-    console.log(result);
-    // setCode(result.outputFiles[0].text);
-    iframe.current?.contentWindow?.postMessage(result.outputFiles[0].text, "*");
+    // console.log(result);
+    setCode(result.outputFiles[0].text);
   };
   return (
     <div className="App">
       <CodeEditor defaultValue="const a = 1" passValue={changeHandler} />
-      <textarea value={input} onChange={handleChange}></textarea>
       <div>
         <button onClick={handleClick}>Submit</button>
       </div>
-      <iframe
-        sandbox="allow-scripts"
-        ref={iframe}
-        srcDoc={html}
-        title="preview"
-      />
+      <Preview code={code} />
     </div>
   );
 }
