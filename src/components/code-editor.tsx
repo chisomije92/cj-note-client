@@ -1,8 +1,9 @@
 import classes from "./code-editor.module.css";
-import Editor, { OnChange } from "@monaco-editor/react";
+import Editor, { OnChange, OnMount } from "@monaco-editor/react";
 import React, { useRef } from "react";
 import prettier from "prettier";
 import parser from "prettier/parser-babel";
+import { RingLoader as Loader } from "react-spinners";
 
 interface CodeEditorProps {
   defaultValue: string;
@@ -12,20 +13,17 @@ interface CodeEditorProps {
 const CodeEditor: React.FC<CodeEditorProps> = ({ defaultValue, passValue }) => {
   const editorRef = useRef<any>();
 
-  function handleEditorDidMount(editor: any, monaco: any) {
+  const handleEditorDidMount: OnMount = (editor, monaco) => {
     editorRef.current = editor;
-    // console.log(editorRef.current);
-  }
+  };
 
   const handleEditorChange: OnChange = (value, event) => {
-    // console.log("here is the current model value:", value);
     if (value) {
       passValue(value);
     }
   };
 
   const onFormatClick = () => {
-    // console.log(editorRef.current);
     const unformatted = editorRef.current.getModel().getValue();
     const formatted = prettier
       .format(unformatted, {
@@ -38,6 +36,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ defaultValue, passValue }) => {
       .trim();
     editorRef.current.setValue(formatted);
   };
+
   return (
     <div className={classes["editor-wrapper"]}>
       <button
@@ -49,6 +48,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ defaultValue, passValue }) => {
       <Editor
         defaultValue={defaultValue}
         onMount={handleEditorDidMount}
+        loading={<Loader color="white" />}
         onChange={handleEditorChange}
         height="500px"
         language="javascript"
