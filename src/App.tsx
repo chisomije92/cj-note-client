@@ -46,6 +46,11 @@ console.log(e);
     setInput(e.target.value);
   };
 
+  const changeHandler = (value: string) => {
+    setInput(value);
+    // console.log(value);
+  };
+
   const handleClick = async () => {
     if (!ref.current) {
       return;
@@ -70,7 +75,7 @@ console.log(e);
   };
   return (
     <div className="App">
-      <CodeEditor />
+      <CodeEditor defaultValue="const a = 1" passValue={changeHandler} />
       <textarea value={input} onChange={handleChange}></textarea>
       <div>
         <button onClick={handleClick}>Submit</button>
