@@ -3,6 +3,7 @@ import * as esbuild from "esbuild-wasm";
 import "./App.css";
 import { unpkgPathPlugin } from "./plugins/unpkg-path-plugin";
 import { fetchPlugin } from "./plugins/fetch-plugin";
+import CodeEditor from "./components/code-editor";
 
 function App() {
   const ref = useRef<any>(null);
@@ -69,6 +70,7 @@ console.log(e);
   };
   return (
     <div className="App">
+      <CodeEditor />
       <textarea value={input} onChange={handleChange}></textarea>
       <div>
         <button onClick={handleClick}>Submit</button>
