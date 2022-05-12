@@ -39,7 +39,12 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ defaultValue, passValue }) => {
   };
   return (
     <div>
-      <button onClick={onFormatClick}>Format</button>
+      <button
+        className="button button-format is-primary is-small"
+        onClick={onFormatClick}
+      >
+        Format
+      </button>
       <Editor
         defaultValue={defaultValue}
         onMount={handleEditorDidMount}
