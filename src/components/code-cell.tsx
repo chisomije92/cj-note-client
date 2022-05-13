@@ -19,7 +19,9 @@ function CodeCell() {
   return (
     <Resizable direction="horizontal">
       <div style={{ height: "100%", display: "flex", flexDirection: "row" }}>
-        <CodeEditor defaultValue="const a = 1" passValue={changeHandler} />
+        <Resizable direction="vertical">
+          <CodeEditor defaultValue="const a = 1" passValue={changeHandler} />
+        </Resizable>
         <Preview code={code} />
       </div>
     </Resizable>
