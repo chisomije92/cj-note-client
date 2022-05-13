@@ -8,8 +8,10 @@ function App() {
 
   useEffect(() => {
     if (!ref.current) {
-      startService();
-      ref.current = true;
+      setTimeout(async () => {
+        await startService();
+        ref.current = true;
+      }, 10);
     }
     return;
   }, []);
