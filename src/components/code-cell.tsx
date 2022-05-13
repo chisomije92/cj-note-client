@@ -2,10 +2,9 @@ import { useState } from "react";
 import { bundler } from "../bundler";
 import CodeEditor from "./code-editor";
 import Preview from "./preview";
+import Resizable from "./resizabe";
 
 function CodeCell() {
-  //   const ref = useRef<any>(null);
-
   const [input, setInput] = useState("");
   const [code, setCode] = useState("");
 
@@ -18,13 +17,15 @@ function CodeCell() {
     setCode(result);
   };
   return (
-    <div className="App">
-      <CodeEditor defaultValue="const a = 1" passValue={changeHandler} />
+    <Resizable direction="horizontal">
       <div>
-        <button onClick={handleClick}>Submit</button>
+        <CodeEditor defaultValue="const a = 1" passValue={changeHandler} />
+        <div>
+          <button onClick={handleClick}>Submit</button>
+        </div>
+        <Preview code={code} />
       </div>
-      <Preview code={code} />
-    </div>
+    </Resizable>
   );
 }
 
