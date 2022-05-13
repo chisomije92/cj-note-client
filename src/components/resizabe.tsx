@@ -7,13 +7,9 @@ interface ResizableProps {
   children: React.Element<any>;
 }
 
-// type ResizableProps = {
-//   direction: "horizontal" | "vertical";
-//   children: React.Element<any>;
-// };
 const Resizable: React.FC<ResizableProps> = ({ direction, children }) => {
   return (
-    <ResizableBox width={400} height={400} resizeHandles={["s"]}>
+    <ResizableBox width={Infinity} height={400} resizeHandles={["s"]}>
       {children}
     </ResizableBox>
   );

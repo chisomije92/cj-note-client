@@ -50,7 +50,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ defaultValue, passValue }) => {
         onMount={handleEditorDidMount}
         loading={<Loader color="white" />}
         onChange={handleEditorChange}
-        height="500px"
+        height="100%"
         language="javascript"
         theme="vs-dark"
         options={{

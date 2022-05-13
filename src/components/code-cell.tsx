@@ -18,11 +18,8 @@ function CodeCell() {
   };
   return (
     <Resizable direction="horizontal">
-      <div>
+      <div style={{ height: "100%", display: "flex", flexDirection: "row" }}>
         <CodeEditor defaultValue="const a = 1" passValue={changeHandler} />
-        <div>
-          <button onClick={handleClick}>Submit</button>
-        </div>
         <Preview code={code} />
       </div>
     </Resizable>
