@@ -26,9 +26,12 @@ export const bundler = async (rawCode: string) => {
       },
     })
     .then((result) => {
-      return result.outputFiles[0].text;
+      return {
+        code: result.outputFiles[0].text,
+        err: "",
+      };
+    })
+    .catch((e) => {
+      return { code: "", err: e.message };
     });
-  // .catch((e) => {
-  //   return { code: "", error: e.message };
-  // });
 };
