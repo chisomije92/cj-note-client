@@ -1,3 +1,4 @@
+import "./text-editor.css";
 import MDEditor from "@uiw/react-md-editor";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -25,14 +26,16 @@ const TextEditor: React.FC = () => {
 
   if (editing) {
     return (
-      <div ref={ref}>
+      <div className="text-editor" ref={ref}>
         <MDEditor value={value} onChange={(v) => setValue(v || "")} />
       </div>
     );
   }
   return (
-    <div onClick={() => setEditing(true)}>
-      <MDEditor.Markdown source={value} />
+    <div className="text-editor card" onClick={() => setEditing(true)}>
+      <div className="card-content">
+        <MDEditor.Markdown source={value} />
+      </div>
     </div>
   );
 };
