@@ -72,6 +72,8 @@ const cellsSlice = createSlice({
   },
 });
 
+export default cellsSlice;
+
 export const cellsSliceActions = cellsSlice.actions;
 
 const randomId = () => {
