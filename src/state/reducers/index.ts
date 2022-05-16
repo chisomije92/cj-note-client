@@ -6,7 +6,6 @@ const store = configureStore({
     cells: cellsSlice.reducer,
   },
 });
+export default store;
 
 export type RootState = ReturnType<typeof store.getState>;
-
-export default store;
