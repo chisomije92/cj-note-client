@@ -1,3 +1,5 @@
+import { CellType } from "../cell";
+
 export type Direction = "up" | "down";
 
 export interface MoveCellActionModel {
@@ -11,7 +13,7 @@ export interface MoveCellActionModel {
 
 export interface InsertCellBeforeActionModel {
   id: string | null;
-  type: "code" | "text";
+  type: CellType;
 }
 
 export interface UpdateCellActionModel {
