@@ -10,14 +10,14 @@ const CellList = () => {
 
   const renderedCells = cells.map((cell) => (
     <Fragment key={cell.id}>
-      <AddCell prevCellId={cell.id} />
       <CellListItem cell={cell} />
+      <AddCell prevCellId={cell.id} />
     </Fragment>
   ));
   return (
     <div>
-      {renderedCells}
       <AddCell prevCellId={null} forceVisible={cells.length === 0} />
+      {renderedCells}
     </div>
   );
 };

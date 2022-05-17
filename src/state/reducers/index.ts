@@ -27,7 +27,7 @@ export type AppDispatch = typeof store.dispatch;
 //   },
 // });
 
-store.dispatch(cellsSliceActions.insertCellBefore({ id: null, type: "text" }));
-store.dispatch(cellsSliceActions.insertCellBefore({ id: null, type: "code" }));
-store.dispatch(cellsSliceActions.insertCellBefore({ id: null, type: "text" }));
+// store.dispatch(cellsSliceActions.insertCellAfter({ id: null, type: "text" }));
+// store.dispatch(cellsSliceActions.insertCellAfter({ id: null, type: "code" }));
+
 // console.log(store.getState());

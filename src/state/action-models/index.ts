@@ -20,3 +20,15 @@ export interface UpdateCellActionModel {
   id: string;
   content: string;
 }
+
+export interface BundleStartActionModel {
+  cellId: string;
+}
+
+export interface BundleCompleteActionModel {
+  cellId: string;
+  bundle: {
+    code: string;
+    err: string;
+  };
+}
