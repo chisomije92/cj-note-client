@@ -1,3 +1,4 @@
+import "./action-bar.css";
 import React from "react";
 import { useCellActions } from "../hooks/use-actions";
 
@@ -7,7 +8,7 @@ interface ActionBarProps {
 const ActionBar: React.FC<ActionBarProps> = ({ id }) => {
   const { moveCell, deleteCell } = useCellActions();
   return (
-    <div>
+    <div className="action-bar">
       <button
         className="button is-primary is-small"
         onClick={() => moveCell({ id, direction: "up" })}
