@@ -9,3 +9,13 @@ const store = configureStore({
 export default store;
 
 export type RootState = ReturnType<typeof store.getState>;
+
+// store.dispatch({
+//   type: "cells/insertCellBefore",
+//   payload: {
+//     id: null,
+//     type: "code",
+//   },
+// });
+
+// console.log(store.getState());
