@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import { AppDispatch } from "../state";
@@ -8,12 +9,18 @@ export const useAppDispatch = () => useDispatch<AppDispatch>();
 
 export const useCellActions = () => {
   const dispatch = useAppDispatch();
-  return bindActionCreators(cellsSliceActions, dispatch);
+  return useMemo(
+    () => bindActionCreators(cellsSliceActions, dispatch),
+    [dispatch]
+  );
 };
 
 export const useBundleActions = () => {
   const dispatch = useAppDispatch();
-  return bindActionCreators(bundleSliceActions, dispatch);
+  return useMemo(
+    () => bindActionCreators(bundleSliceActions, dispatch),
+    [dispatch]
+  );
 };
 
 // const{} = useBundleActions();

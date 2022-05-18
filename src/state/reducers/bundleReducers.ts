@@ -5,11 +5,13 @@ import {
 } from "../action-models";
 
 interface BundleState {
-  [key: string]: {
-    loading: boolean;
-    error: string;
-    code: string;
-  };
+  [key: string]:
+    | {
+        loading: boolean;
+        err: string;
+        code: string;
+      }
+    | undefined;
 }
 
 const initialState: BundleState = {};
@@ -24,7 +26,7 @@ const bundleSlice = createSlice({
     ) {
       state[action.payload.cellId] = {
         loading: true,
-        error: "",
+        err: "",
         code: "",
       };
       return state;
@@ -35,7 +37,7 @@ const bundleSlice = createSlice({
     ) {
       state[action.payload.cellId] = {
         loading: false,
-        error: action.payload.bundle.err,
+        err: action.payload.bundle.err,
         code: action.payload.bundle.code,
       };
       return state;
