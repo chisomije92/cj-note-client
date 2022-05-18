@@ -1,3 +1,4 @@
+import "./code-cell.css";
 import React, { useEffect } from "react";
 import { useCellActions } from "../hooks/use-actions";
 import { useAppDispatch } from "../hooks/use-actions";
