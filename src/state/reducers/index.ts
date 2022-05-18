@@ -1,9 +1,8 @@
-import { configureStore, MiddlewareArray } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import bundleSlice, { bundleSliceActions } from "./bundleReducers";
 import { AnyAction } from "redux";
-import cellsSlice from "./cellReducers";
+import cellsSlice, { cellsSliceActions } from "./cellReducers";
 import thunk from "redux-thunk";
-import { ThunkMiddleware } from "redux-thunk";
 import { ThunkAction } from "@reduxjs/toolkit";
 import { bundler } from "../../bundler";
 
@@ -63,7 +62,7 @@ export const createBundle = (
 //   },
 // });
 
-// store.dispatch(cellsSliceActions.insertCellAfter({ id: null, type: "text" }));
-// store.dispatch(cellsSliceActions.insertCellAfter({ id: null, type: "code" }));
+store.dispatch(cellsSliceActions.insertCellAfter({ id: null, type: "text" }));
+store.dispatch(cellsSliceActions.insertCellAfter({ id: null, type: "code" }));
 
 // console.log(store.getState());
