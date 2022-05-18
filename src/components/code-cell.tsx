@@ -7,6 +7,7 @@ import { Cell, createBundle } from "../state";
 import CodeEditor from "./code-editor";
 import Preview from "./preview";
 import Resizable from "./resizable";
+import { useCumulativeCode } from "../hooks/use-cumulative-code";
 
 interface CodeCellProps {
   cell: Cell;
@@ -15,40 +16,8 @@ interface CodeCellProps {
 const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
   //
   const bundle = useTypedSelector((state) => state.bundle[cell.id]);
-  const cumulativeCode = useTypedSelector((state) => {
-    const { data, order } = state.cells;
-    const orderedCells = order.map((id) => data[id]);
-    const cumulativeCode = [
-      `
-      import _React from 'react';
-      import _ReactDOM from 'react-dom'
-      const show = (value) => {
-      const root = document.getElementById("root");
-      if(typeof value === "object") {
-        if(value.$$typeof && value.props){
-          _ReactDOM.render(value, root);
-        }else{
-          root.innerHTML = JSON.stringify(value);
-        }
-      }else{
-        root.innerHTML = value;
-      }
-    
-    }
-    `,
-    ];
-    for (let c of orderedCells) {
-      if (c.type === "code") {
-        cumulativeCode.push(c.content);
-      }
-      if (c.id === cell.id) {
-        break;
-      }
-    }
-    return cumulativeCode;
-  });
+  const cumulativeCode = useCumulativeCode(cell.id);
 
-  // console.log(cumulativeCode);
   const dispatch = useAppDispatch();
 
   const { updateCell } = useCellActions();
@@ -59,18 +28,18 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
 
   useEffect(() => {
     if (!bundle) {
-      dispatch(createBundle(cell.id, cumulativeCode.join("\n")));
+      dispatch(createBundle(cell.id, cumulativeCode));
       return;
     }
     const timer = setTimeout(async () => {
-      dispatch(createBundle(cell.id, cumulativeCode.join("\n")));
+      dispatch(createBundle(cell.id, cumulativeCode));
     }, 750);
 
     return () => {
       clearTimeout(timer);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cumulativeCode.join("\n"), cell.id, dispatch]);
+  }, [cumulativeCode, cell.id, dispatch]);
 
   return (
     <Resizable direction="vertical">
