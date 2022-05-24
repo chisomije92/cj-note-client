@@ -62,8 +62,8 @@ export const createBundle = (
 //   },
 // });
 
-store.dispatch(cellsSliceActions.insertCellAfter({ id: null, type: "code" }));
-store.dispatch(cellsSliceActions.insertCellAfter({ id: null, type: "text" }));
-store.dispatch(cellsSliceActions.insertCellAfter({ id: null, type: "code" }));
+// store.dispatch(cellsSliceActions.insertCellAfter({ id: null, type: "code" }));
+// store.dispatch(cellsSliceActions.insertCellAfter({ id: null, type: "text" }));
+// store.dispatch(cellsSliceActions.insertCellAfter({ id: null, type: "code" }));
 
 // console.log(store.getState());

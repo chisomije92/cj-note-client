@@ -26,6 +26,23 @@ const cellsSlice = createSlice({
   name: "cells",
   initialState,
   reducers: {
+    fetchCellsStart(state: CellState) {
+      state.loading = true;
+      state.error = null;
+      return state;
+    },
+
+    fetchCellsComplete(state: CellState, action: PayloadAction<Cell[]>) {
+      state.loading = false;
+      state.error = null;
+      state.order = action.payload.map((cell) => cell.id);
+      state.data = action.payload.reduce((acc, cell) => {
+        acc[cell.id] = cell;
+        return acc;
+      }, {} as CellState["data"]);
+      return state;
+    },
+
     moveCell(state: CellState, action: PayloadAction<MoveCellActionModel>) {
       const { direction } = action.payload;
       const index = state.order.findIndex((id) => id === action.payload.id);
