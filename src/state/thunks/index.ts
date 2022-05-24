@@ -16,21 +16,23 @@ export const fetchCells = (): ThunkAction<
   unknown,
   AnyAction
 > => {
-  return async (dispatch, getState) => {
+  return async (dispatch, getState: () => RootState) => {
     dispatch(cellsSliceActions.fetchCellsStart());
     try {
-      const { data } = getState().cells.data;
-      const { order } = getState().cells;
+      //   const { data } = getState().cells.data;
+      //   const { order } = getState().cells;
+      const {
+        cells: { data, order },
+      } = getState();
       if (order.length === 0) {
-        // console.log("no data");
-
         dispatch(cellsSliceActions.fetchCellsComplete(defaultCell));
       } else {
         console.log("data");
-        dispatch(cellsSliceActions.fetchCellsComplete([data]));
+        const cells = order.map((id) => data[id]);
+        dispatch(cellsSliceActions.fetchCellsComplete(cells));
       }
-      //   console.log(data);
-      //   console.log(getState().cells.order);
+      console.log(data);
+      console.log(order);
     } catch (err: any) {
       //   dispatch(cellsSliceActions.fetchCellsError(err.message));
     }
