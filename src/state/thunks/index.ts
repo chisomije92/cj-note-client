@@ -28,7 +28,6 @@ export const fetchCells = (): ThunkAction<
         if (cellCache) {
           cellCache.getItem<Cell[]>("cells").then((cells) => {
             if (cells) {
-              console.log("fetch cells from cache");
               dispatch(cellsSliceActions.fetchCellsComplete(cells));
             } else {
               dispatch(cellsSliceActions.fetchCellsComplete(defaultCell));

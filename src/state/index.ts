@@ -4,4 +4,5 @@ export { bundleSliceActions } from "./reducers/bundleReducers";
 export * from "./reducers";
 export * from "./action-models";
 export * from "./cell";
+export * from "./thunks";
 export default store;
