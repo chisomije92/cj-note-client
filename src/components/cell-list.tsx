@@ -4,7 +4,7 @@ import { useTypedSelector } from "../hooks/use-typed-selector";
 import AddCell from "./add-cell";
 import CellListItem from "./cell-list-item";
 import { useAppDispatch } from "../hooks/use-actions";
-import { fetchCells } from "../state/thunks";
+import { fetchCells, saveCells } from "../state/thunks";
 
 const CellList = () => {
   const cells = useTypedSelector(({ cells: { order, data } }) => {
@@ -16,6 +16,10 @@ const CellList = () => {
   useEffect(() => {
     dispatch(fetchCells());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(saveCells());
+  }, [dispatch, cells]);
 
   const renderedCells = cells.map((cell) => (
     <Fragment key={cell.id}>

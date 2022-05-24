@@ -19,21 +19,45 @@ export const fetchCells = (): ThunkAction<
   return async (dispatch, getState: () => RootState) => {
     dispatch(cellsSliceActions.fetchCellsStart());
     try {
-      //   const { data } = getState().cells.data;
-      //   const { order } = getState().cells;
       const {
-        cells: { data, order },
+        cells: { order },
       } = getState();
-      if (order.length === 0) {
+      if (order.length === 0 && !cellCache) {
         dispatch(cellsSliceActions.fetchCellsComplete(defaultCell));
       } else {
-        const cells = order.map((id) => data[id]);
-        dispatch(cellsSliceActions.fetchCellsComplete(cells));
+        if (cellCache) {
+          cellCache.getItem<Cell[]>("cells").then((cells) => {
+            if (cells) {
+              console.log("fetch cells from cache");
+              dispatch(cellsSliceActions.fetchCellsComplete(cells));
+            } else {
+              dispatch(cellsSliceActions.fetchCellsComplete(defaultCell));
+            }
+          });
+        }
       }
-      console.log(data);
-      console.log(order);
     } catch (err: any) {
       dispatch(cellsSliceActions.fetchCellsError(err.message));
+    }
+  };
+};
+
+export const saveCells = (): ThunkAction<
+  void,
+  RootState,
+  unknown,
+  AnyAction
+> => {
+  return async (dispatch, getState: () => RootState) => {
+    const {
+      cells: { data, order },
+    } = getState();
+
+    const cells = order.map((id) => data[id]);
+    try {
+      await cellCache.setItem("cells", cells);
+    } catch (err: any) {
+      dispatch(cellsSliceActions.saveCellsError(err.message));
     }
   };
 };
