@@ -27,14 +27,13 @@ export const fetchCells = (): ThunkAction<
       if (order.length === 0) {
         dispatch(cellsSliceActions.fetchCellsComplete(defaultCell));
       } else {
-        console.log("data");
         const cells = order.map((id) => data[id]);
         dispatch(cellsSliceActions.fetchCellsComplete(cells));
       }
       console.log(data);
       console.log(order);
     } catch (err: any) {
-      //   dispatch(cellsSliceActions.fetchCellsError(err.message));
+      dispatch(cellsSliceActions.fetchCellsError(err.message));
     }
   };
 };

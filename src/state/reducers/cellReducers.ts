@@ -42,6 +42,11 @@ const cellsSlice = createSlice({
       }, {} as CellState["data"]);
       return state;
     },
+    fetchCellsError(state: CellState, action: PayloadAction<string>) {
+      state.loading = false;
+      state.error = action.payload;
+      return state;
+    },
 
     moveCell(state: CellState, action: PayloadAction<MoveCellActionModel>) {
       const { direction } = action.payload;
