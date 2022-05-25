@@ -7,7 +7,7 @@ This is an interactive coding environment that enables the user to write Javascr
 - [Table of contents](#table-of-contents)
 - [Overview](#overview)
   - [Links](#links)
-    - [Using this App](#using-this-app)
+  - [Using this App](#using-this-app)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
@@ -21,15 +21,15 @@ This is an interactive coding environment that enables the user to write Javascr
 - Repo: [Github repo](https://github.com/chisomije92/cj-note-client)
 - Live Site URL: [Vercel Web URL](https://cj-note-client.vercel.app/)
 
-  #### Using this App
+### Using this App
 
-  To use the app, please note the following:
+To use the app, please note the following:
 
-  - Add new cells by hovering on the divider between each cell
-  - Click on any cell to edit code or markdown
-  - Variables defined in a code cell can be referred to or used in another code cell
-  - Use the built-in **show** function to display a React component, string, number, object etc.
-  - Re-order or delete cells by using the buttons on the top-left
+- Add new cells by hovering on the divider between each cell
+- Click on any cell to edit code or markdown
+- Variables defined in a code cell can be referred to or used in another code cell
+- Use the built-in **show** function to display a React component, string, number, object etc.
+- Re-order or delete cells by using the buttons on the top-left
 
 ## My process
 
