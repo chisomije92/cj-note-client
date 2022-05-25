@@ -2,6 +2,9 @@ CJ-NOTE INTERACTIVE CODE CLIENT
 
 This is an interactive coding environment that enables the user to write Javascript code conveniently. This platform also present the user with the feature of writing documentation in markdown for the code.
 
+![CJnote-client](https://user-images.githubusercontent.com/68636386/170349196-e76ce0da-b335-464b-9459-5fdab55fbcee.png)
+
+
 ## Table of contents
 
 - [Table of contents](#table-of-contents)
