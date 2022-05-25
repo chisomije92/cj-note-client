@@ -10,7 +10,7 @@ This is an interactive coding environment that enables the user to write Javascr
   - [Using this App](#using-this-app)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
+  - [Knowledge Acquired/Areas improved on](#knowledge-acquiredareas-improved-on)
 - [Credits](#credits)
 - [Author](#author)
 
@@ -46,7 +46,7 @@ To use the app, please note the following:
 - [React-Resizable](https://www.npmjs.com/package/react-resizable) - Resize react components
 - [localforage](https://localforage.github.io/localForage/) - JS library for storage
 
-### What I learned
+### Knowledge Acquired/Areas improved on
 
 I improved my knowledge on and gained practical experience with the use of the following:
 
