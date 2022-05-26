@@ -1,21 +1,23 @@
-CJ-NOTE INTERACTIVE CODE CLIENT
+# CJ-NOTE INTERACTIVE CODE CLIENT
 
-This is an interactive coding environment that enables the user to write Javascript code conveniently. This platform also present the user with the feature of writing documentation in markdown for the code.
+This is a wep app that enables the user to write Javascript code conveniently. This platform also present the user with the feature of writing documentation in markdown for the code.
+
+The command line interface of this app can be found at [CJ-NOTE CLI](https://www.npmjs.com/package/cjnote) and [CJ-NOTE github repo](https://github.com/chisomije92/CJNote).
 
 ![CJnote-client](https://user-images.githubusercontent.com/68636386/170349196-e76ce0da-b335-464b-9459-5fdab55fbcee.png)
 
-
 ## Table of contents
 
-- [Table of contents](#table-of-contents)
-- [Overview](#overview)
-  - [Links](#links)
-  - [Using this App](#using-this-app)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [Knowledge Acquired/Areas improved on](#knowledge-acquiredareas-improved-on)
-- [Credits](#credits)
-- [Author](#author)
+- [CJ-NOTE INTERACTIVE CODE CLIENT](#cj-note-interactive-code-client)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [Links](#links)
+    - [Usage instruction](#usage-instruction)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+    - [Knowledge Acquired/Areas improved on](#knowledge-acquiredareas-improved-on)
+  - [Credits](#credits)
+  - [Author](#author)
 
 ## Overview
 
@@ -24,7 +26,7 @@ This is an interactive coding environment that enables the user to write Javascr
 - Repo: [Github repo](https://github.com/chisomije92/cj-note-client)
 - Live Site URL: [Vercel Web URL](https://cj-note-client.vercel.app/)
 
-### Using this App
+### Usage instruction
 
 To use the app, please note the following:
 
@@ -43,6 +45,7 @@ To use the app, please note the following:
 - CSS - For styles
 - [React](https://reactjs.org/) - JS library
 - [Typescript](https://www.typescriptlang.org/) - Ensure JS type safety
+- [Esbuild](https://esbuild.github.io/) - Code bundler and transpiler
 - [React Redux](https://react-redux.js.org/) - React redux
 - [React MD Editor](https://www.npmjs.com/package/@uiw/react-md-editor) - React Markdown Editor
 - [Monaco-Editor](https://www.npmjs.com/package/@monaco-editor/react) - Code editor
