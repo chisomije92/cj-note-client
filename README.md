@@ -2,7 +2,7 @@
 
 This is a wep app that enables the user to write Javascript code conveniently. This platform also present the user with the feature of writing documentation in markdown for the code.
 
-The command line interface of this app can be found at [CJ-NOTE CLI](https://www.npmjs.com/package/cjnote) and [CJ-NOTE github repo](https://github.com/chisomije92/CJNote).
+The command line interface version of this app can be found at [CJ-NOTE CLI](https://www.npmjs.com/package/cjnote) and [CJ-NOTE github repo](https://github.com/chisomije92/CJNote).
 
 ![CJnote-client](https://user-images.githubusercontent.com/68636386/170349196-e76ce0da-b335-464b-9459-5fdab55fbcee.png)
 
