@@ -2,7 +2,7 @@
 
 
 
-<p style="text-align:center">[![NODEJS](https://img.shields.io/badge/Node-%20JS-blue)](https://nodejs.org/en/) </p>
+[![NODEJS](https://img.shields.io/badge/Node-%20JS-blue)](https://nodejs.org/en/) [![NODEJS](https://img.shields.io/badge/Node-%20JS-blue)](https://nodejs.org/en/)
 
 This is a wep app that enables the user to write Javascript code conveniently. This platform also present the user with the feature of writing documentation in markdown for the code.
 
