@@ -2,7 +2,7 @@
 
 
 
-[![NODEJS](https://img.shields.io/badge/Node-%20JS-blue)](https://nodejs.org/en/) [![NODEJS](https://img.shields.io/badge/Node-%20JS-blue)](https://nodejs.org/en/)
+[![REACTJS](https://img.shields.io/badge/React-%20JS-blue)](https://reactjs.org/) [![Typescript](https://img.shields.io/badge/Typescript-%20JS-informational)](https://www.typescriptlang.org/) [![React-Redux](https://img.shields.io/badge/React--Redux-storage-9cf)](https://react-redux.js.org/) 
 
 This is a wep app that enables the user to write Javascript code conveniently. This platform also present the user with the feature of writing documentation in markdown for the code.
 
