@@ -1,6 +1,6 @@
 # CJ-NOTE INTERACTIVE CODE CLIENT
 
-<p style="text-align:center"> example text </p>
+<p style="text-align:center"> [![REACTJS](https://img.shields.io/badge/React-%20JS-blue)](https://reactjs.org/) [![Typescript](https://img.shields.io/badge/Typescript-%20JS-informational)](https://www.typescriptlang.org/) [![React-Redux](https://img.shields.io/badge/React--Redux-storage-9cf)](https://react-redux.js.org/)   </p>
 
 This is a wep app that enables the user to write Javascript code conveniently. This platform also present the user with the feature of writing documentation in markdown for the code.
 
