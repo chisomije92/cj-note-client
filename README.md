@@ -1,6 +1,8 @@
 # CJ-NOTE INTERACTIVE CODE CLIENT
 
-[![NODEJS](https://img.shields.io/badge/Node-%20JS-blue)](https://nodejs.org/en/)
+
+
+<p style="text-align:center">[![NODEJS](https://img.shields.io/badge/Node-%20JS-blue)](https://nodejs.org/en/) </p>
 
 This is a wep app that enables the user to write Javascript code conveniently. This platform also present the user with the feature of writing documentation in markdown for the code.
 
